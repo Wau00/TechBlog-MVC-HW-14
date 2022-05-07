@@ -43,7 +43,7 @@ User.init(
                 return newUserPass;
             }
         },
-        sequelize: false,
+        sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
