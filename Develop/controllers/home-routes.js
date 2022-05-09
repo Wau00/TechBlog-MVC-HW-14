@@ -10,11 +10,11 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id', 'post_id']
+                    attributes: ['content', 'date_created', 'user_id', 'posted_id']
                 }
             ],
         });
@@ -39,17 +39,25 @@ router.get('/post/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id', 'post_id']
+                    attributes: ['content', 'date_created', 'user_id', 'posted_id']
                 }
             ],
         });
 
         const post = postData.map((post) => post.get({ plain: true }));
 
-        res.render('all-post', { post, logged_in: req.session.logged_in });
+        res.render('single-post', { post, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+    }
+    res.render('login');
 });
 
 module.exports = router;
