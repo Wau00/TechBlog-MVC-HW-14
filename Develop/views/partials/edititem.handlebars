@@ -1,11 +1,11 @@
 <div class="card text-white bg-dark mb-3">
     <a class="link" href="dashboard/edit/{{id}}">
         <div class="card-header">
-            <h5 class="card-title-edit">Title: {{this.title}}</h5>
-            <div class="author-edit">Posted by {{user.username}} on {{format_date this.date_created}}</div>
+            <h5 class="card-title-edit">Title: {{post.title}}</h5>
+            <div class="author-edit">Posted by {{user.username}} on {{format_date post.date_created}}</div>
         </div>
         <div class="card-body">
-            <p class="card-text">{{this.content}}</p>
+            <p class="card-text">{{post.content}}</p>
         </div>
     </a>
 </div>
