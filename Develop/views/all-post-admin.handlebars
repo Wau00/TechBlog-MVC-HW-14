@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-auto">
+    {{!-- this can not be displayed somehow --}}
+  <h2>{{user.username}}! </h2>
+  </div>
+</div>
+<br>
+{{#if posts.lenght}}
+<article class="post-edit">
+{{#each posts as |post|}}
+{{>edititem post}}
+{{/each}}
+</article>
+{{/if}}

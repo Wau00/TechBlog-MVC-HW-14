@@ -1,16 +1,5 @@
 <article class="post">
-<!--Creating Posts Template-->
 {{#each posts as |post|}}
- {{> post-info post}}
-<div class="card text-white bg-dark mb-3">
-        <div class="card-header">
-            <h5 class="card-title"><a class="link" href="/post/{{id}}">{{this.title}}</a></h5>
-            <div class="author">Posted by {{user.username}} on {{format_date this.date_created}}</div>
-        </div>
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-        </div>
-</div>
+{{> postitem post}}
 {{/each}}
 </article>
