@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
         const newPost = await Post.create({
             title: req.body.title,
@@ -18,19 +18,18 @@ router.post('/', async (req, res) => {
     res.render('single-post');
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
-        const postInfo = await Project.update({
+        const postInfo = await Post.update({
+            where: {
+                id: req.params.id,
+            },
             title: req.body.title,
             content: req.body.content,
             user_id: req.body.user_id,
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
         });
         if (!postInfo) {
-            res.status(404).json({ message: 'No project Found' });
+            res.status(404).json({ message: 'No post Found' });
             return;
         }
         res.status(200).json(postInfo);
@@ -44,7 +43,6 @@ router.delete('/:id', async (req, res) => {
         const postInfo = await Project.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
             },
         });
 
