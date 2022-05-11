@@ -7,7 +7,7 @@ const newFormHandler = async function (event) {
     console.log(title);
     console.log(description);
 
-    await fetch(`/api/post`, {
+    await fetch("/api/post", {
         method: 'POST',
         body: JSON.stringify({
             title,
@@ -19,5 +19,5 @@ const newFormHandler = async function (event) {
 };
 
 document
-    .querySelector('.new-post-form')
-    .addEventListener('submit', newFormHandler);
+    .querySelector('#newFormBtn')
+    .addEventListener('click', newFormHandler);

@@ -7,19 +7,18 @@ router.get('/', withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: { user_id: req.session.user_id },
-            attributes: { exclude: ['password'] },
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id', 'posted_id']
-                }
+                    include: User,
+                },
             ],
         });
         const post = postData.map((post) => post.get({ plain: true }));
+        console.log(post)
         res.render('all-post-admin', { post, logged_in: true });
     } catch (err) {
         res.status(500).json(err);

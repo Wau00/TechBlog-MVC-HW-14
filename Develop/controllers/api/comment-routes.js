@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
         console.log(comments);
-        res.render('single-post', { comments, loggedIn: req.session.loggedIn });
+        res.render('single-post', { comments, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -20,13 +20,13 @@ router.get('/', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const newComent = await Comment.create({
+        const newComment = await Comment.create({
             content: req.body.content,
             posted_id: req.body.posted_id,
             user_id: req.session.user_id
         })
 
-        res.status(200).json(newComent);
+        res.status(200).json(newComment);
     } catch (err) {
         res.status(400).json(err);
     }
