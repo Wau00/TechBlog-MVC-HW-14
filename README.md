@@ -32,7 +32,7 @@ Link  of  deployed app: [Open Tech-Blog](https://glacial-peak-13098.herokuapp.co
 ## License
  This project is protected under ![License](https://img.shields.io/badge/license-MIT-black?style=for-the-badge&logo=github&logoColor=white) . 
 
-Copyright (c) 2022 ECommerce-BackEnd-ORM-HW-13
+Copyright (c) 2022 Walter Underwood
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
