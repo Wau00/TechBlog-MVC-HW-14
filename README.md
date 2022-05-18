@@ -28,6 +28,10 @@ Link  of  deployed app: [Open Tech-Blog](https://calm-hamlet-44414.herokuapp.com
 - ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 - ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
 
+## Contact Me 
+- [LinkedIn](https://www.linkedin.com/in/walter-a-underwood-291524234/) 
+- [Walter Underwood](mailto:walonsounderwood@gmail.com?subject=[GitHub]%20Source%20Han%20Sans)
+
 
 ## License
  This project is protected under ![License](https://img.shields.io/badge/license-MIT-black?style=for-the-badge&logo=github&logoColor=white) . 
