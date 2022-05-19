@@ -16,7 +16,7 @@ In this project, we build the back end and front end for an blog site when the u
 
 # Run and Usage
 As a user, feel free to interact in creating, posting and deleting posts about any topic, as wells as adding comments.
-Link  of  deployed app: [Open Tech-Blog](https://calm-hamlet-44414.herokuapp.com/) .
+Link  of  deployed app: [Open Tech-Blog](https://techblogwau.herokuapp.com/).
 
 ## Technologies
 
