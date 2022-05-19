@@ -9,20 +9,15 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
                 },
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id', 'posted_id'],
-                    include: {
-                        model: User,
-                        attributes: ['username']
-                    }
-                }
+                    include: User,
+                },
             ],
         });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('all-post', { posts, logged_in: req.session.logged_in });
+        res.render('all-post', { layout: 'main', posts, logged_in: req.session.logged_in });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -32,45 +27,47 @@ router.get('/post/:id', withAuth, async (req, res) => {
         const postData = await Post.findOne({
             where: { id: req.params.id },
             include: [
-                {
-                    model: User,
-                    attributes: ['username'],
-                },
+                User,
                 {
                     model: Comment,
-                    attributes: ['content', 'date_created', 'user_id', 'posted_id'],
-                    include: {
-                        model: User,
-                        attributes: ['username']
-                    }
-                }
-            ],
+                    include: [User],
+                },
+            ]
         });
-
-
-        const post = postData.get({ plain: true });
-
-        res.render('single-post', { ...post, logged_in: req.session.logged_in });
+        if (postData) {
+            const post = postData.get({ plain: true });
+            console.log(post);
+            res.render('single-post', { layout: 'main', post, logged_in: req.session.logged_in });
+        } else {
+            res.status(404).end();
+        }
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/dashboard');
-        return;
+    try {
+        if (req.session.logged_in) {
+            res.redirect(`/dashboard`);
+        } else {
+            res.render(`login`);
+        }
+    } catch (error) {
+        res.status(500).json(error);
     }
-    res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect('/dashboard');
-        return;
+    try {
+        if (req.session.logged_in) {
+            res.redirect(`/dashboard`);
+        } else {
+            res.render(`signup`);
+        }
+    } catch (error) {
+        res.status(500).json(error);
     }
-
-    res.render('signup');
 });
 
 module.exports = router;

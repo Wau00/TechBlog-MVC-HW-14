@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const { User, Post, Comment } = require('../../models');
+const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 
 router.get('/', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.findAll({
-            include: [User],
+            include: User
         });
         const comments = commentData.map((comment) => comment.get({ plain: true }));
         console.log(comments);
@@ -18,42 +17,32 @@ router.get('/', withAuth, async (req, res) => {
 
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
+    const body = req.body;
     try {
         const newComment = await Comment.create({
-            content: req.body.content,
-            posted_id: req.body.posted_id,
-            user_id: req.session.user_id
-        })
-
-        res.status(200).json(newComment);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-
-});
-
-
-router.delete('/:id', withAuth, async (req, res) => {
-    try {
-        const commentInfo = await Comment.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
+            ...body,
+            user_id: req.session.user_id,
         });
-
-        if (!commentInfo) {
-            res.status(404).json({ message: 'No comment Found' });
-            return;
-        }
-
-        res.status(200).json(commentInfo);
+        res.json(newComment);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        const oldComment = await Comment.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id
+            }
+        })
+        res.status(200).json(oldComment);
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
 
 
 module.exports = router;

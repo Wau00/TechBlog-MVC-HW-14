@@ -1,18 +1,7 @@
-<div class="row">
-  <div class="col-auto">
-  <h2>{{user.username}}! </h2>
-  </div>
-</div>
-<br>
-{{#if post.length}}
-<article class="post-edit">
-{{#each posts as |post|}}
-{{>edititem post}}
-{{/each}}
-</article>
-{{/if}}
 
-<footer class="footer flex-row justify-center">
+
+  <h2 class="welcome fs-1">Welcome! {{user.username}}</h2>
+ <footer class="footer flex-row justify-center">
     <a href="/dashboard/new">
     <div class="newpost">
         <div class="d-grid gap-2 col-6 mx-auto">
@@ -21,3 +10,20 @@
     </div>
     </a>
   </footer>
+
+ {{#if posts.length}}
+<div class="card text-white bg-dark mb-3">
+  {{#each posts as |post|}}
+  <div class="card-header">
+     <h5 class="card-title"><a  class="homepageBurger fs-1" href="/post/{{post.id}}">{{title}} </a></h5>
+  </div>
+  <div class="card-body">
+  
+    <h6 class="card-text fs-5 fw-light "><p>{{content}}</h6>
+  
+   <div class="card-footer text-muted"> <p class="card-text textBurger"><span class="author"> by: {{user.username}}</span> on: {{format_date date_created}} <a href="/dashboard/edit/{{id}}"><button type="button" class="btn btn-danger btn-sm deleteBtn">DELETE</button></a> </p></div>
+  <div class="card"></div>
+  </div>
+   {{/each}}
+</div>
+{{/if}}

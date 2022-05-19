@@ -1,5 +1,19 @@
-<article class="post">
-{{#each posts as |post|}}
-{{> postitem post}}
-{{/each}}
-</article>
+
+
+<div class="card text-white bg-dark mb-3 homepageCard d-grid gap-3">
+  {{#each posts as |post|}}
+  <div class="card-header p-2">
+     <h6 class="fs-1">{{post.title}}</h6>
+  </div>
+  <div class="card-body p-2 ">
+  <h6 class="fs-5 fw-light ">{{post.content}}</h6>
+    {{#each post.content}}
+    <li>{{this}}</li>
+     {{/each}}
+  
+   <div class="card-footer text-muted p-2 "> <p class="card-text textBurger"><span class="author"> by: {{user.username}}</span> on: {{format_date date_created}} <a href="/post/{{post.id}}"><button type="button" class="btn btn-success btn-sm deleteBtn">COMMENTS </button></a> </p></div>
+  <div class="card"></div>
+  </div>
+  
+   {{/each}}
+</div>
