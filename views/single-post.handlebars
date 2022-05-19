@@ -1,24 +1,26 @@
 
-<div class="card">
-    <div class="card-header">
-            <h2>
-                <div class="col-8 usertitle">{{post.title}}</div>
-            </a>
+<div class="card text-white bg-dark mb-3 homepageCard d-grid gap-3">
+    <div class="card-header p-2">
+     <h6 class="fs-1">{{post.title}}</h6>
+    </div>
+    <div class="card-body p-2 ">
+        <h6 class="fs-5 fw-light ">{{post.content}}</h6>
+    </div>
             </h2>
-            <div class="col-3 burgerinfo">posted by {{post.user.username}} on {{format_date post.date_created}}
+            <div class=" burgerinfo">posted by {{post.user.username}} on {{format_date post.date_created}}
             </div>
-    </div> 
-</div>
+    
+    </div>
 
-<div class="card">
+<div class="card card text-white bg-dark mb-3 homepageCard d-grid gap-3">
     <input class="burgerId-input"  type="hidden" name="burgerId-input" value="{{post.user_id}}"/>
    
-    <form class="card-body commentForm text-center">
+    <form class="card-body commentForm text-center input-group ">
         
         <label for="comment" class="form-label"></label>
-        <input type="text" class="form-input comment-input comm-bar">
+        <input type="text" class="form-input comment-input comm-bar inputGroup-sizing-lg">
         </br>
-        <button type="submit" class="btn btn-danger submit-btn">Add comment</button>
+        <button type="submit" class="btn btn-warning  submit-btn">Add comment</button>
     
 
     </form>
@@ -26,5 +28,6 @@
         {{> comments post.comments}}
 </div>
         
+
 
     <script src="/js/comment.js"></script>
