@@ -11,7 +11,7 @@ In this project, we build the back end and front end for an blog site when the u
 
 ![Screen Shot 2022-05-10 at 11 08 18 PM](https://user-images.githubusercontent.com/99919050/167768549-4e0026c1-87af-452c-af92-2765e1ebe837.png)
 ![Screen Shot 2022-05-10 at 11 08 04 PM](https://user-images.githubusercontent.com/99919050/167768540-b92681f4-44b0-4d73-a31d-883c92ed0644.png)
-![Screen Shot 2022-05-10 at 11 21 02 PM](https://user-images.githubusercontent.com/99919050/167768534-3aeae71d-be7c-4ab3-8494-8dcbe58dbd45.png)
+![Screen Shot 2022-05-19 at 12 23 03 AM](https://user-images.githubusercontent.com/99919050/169235872-1e9c32bc-7e8c-4ca2-a844-bfbc90d3db61.png)
 
 
 # Run and Usage
@@ -43,3 +43,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+
